@@ -1,6 +1,9 @@
+const username = 'UserRomanArmijo'
+const password = 'a123456'
+
 export class LoginPage {     
         
-    entersUserCredentials(username, password){
+    entersUserCredentials(){
         cy.get('#loginusername').type(username, {delay :0})
         cy.get('#loginpassword').type(password, {delay :0})
     }

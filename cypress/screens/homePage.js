@@ -16,6 +16,10 @@ export class HomePage {
         cy.get('#logout2').should('be.visible')
     }
 
+    clickOnElement(counter){
+        cy.get(':nth-child('+counter+') > .card > .card-block')   
+    }
+
     clickOnIphoneItemDetail(){
         cy.contains('Iphone').click()        
     }
