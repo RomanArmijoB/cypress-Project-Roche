@@ -1,16 +1,17 @@
 const { loginPage } = require("../screens/loginPage")
 const { homePage } = require("../screens/homePage")
 const { placeOrderDetailPage } = require("../screens/placeOrderDetailPage")
+export const timeOut= 5000
 
 beforeEach('Login to the app', () => {
     cy.openHomePage()
     homePage.clickOnLogInButton()
-    loginPage.entersUserCredentials(username, password)
+    loginPage.entersUserCredentials()
     cy.wait(timeOut)
     loginPage.clickOnLogButton()    
 })
 
-describe('Purchasing products', () => {
+describe('Feature 2: Purchasing products', () => {
     
     it('Test-case-5:User adds a phone in the cart', () => {        
         homePage.clickOnIphoneItemDetail()
