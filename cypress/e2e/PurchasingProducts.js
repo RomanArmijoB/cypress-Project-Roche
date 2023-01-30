@@ -1,6 +1,7 @@
 const { loginPage } = require("../screens/loginPage")
 const { homePage } = require("../screens/homePage")
 const { placeOrderDetailPage } = require("../screens/placeOrderDetailPage")
+const { signUpPage } = require("../screens/signUpPage")
 
 const username = 'UserRomanArmijo'
 const password = 'a123456'
@@ -10,7 +11,6 @@ beforeEach('login to the app', () => {
     cy.openHomePage()
     homePage.clickOnLogInButton()
     loginPage.entersUserCredentials(username, password)
-    cy.wait(timeOut)
     loginPage.clickOnLogButton()    
 })
 
@@ -23,7 +23,7 @@ describe('Feature name', () => {
     });  
 
 
-    it.only('User purchases an order.', () => {
+    it('User purchases an order.', () => {
         homePage.clickOnIphoneItemDetail()
         homePage.clickOnAddtoCartButton()
         homePage.checkIfProductMessageIsDisplayed()
@@ -31,11 +31,17 @@ describe('Feature name', () => {
         homePage.clickOnPaceOrderButton()        
 
         placeOrderDetailPage.typePlaceOrderDetails('My card name', '1234567890123456789')
-        cy.wait(timeOut)
+
         placeOrderDetailPage.clickOnPurchaseButton()
-        cy.get('.sa-success').should('be.visible')
-        cy.get('.sweet-alert > h2').should('be.visible')
+        placeOrderDetailPage.checkContentOfConfirmationPopUpMessage()        
     }); 
+
+    it('User creates a new account on the website Product Store', () => {        
+        homePage.clickOnSignUpButton()
+        signUpPage.entersUserCredentials()
+        signUpPage.clickOnAddtoCartButton()
+        signUpPage.checkIfSignUpSuccessfulMessageIsDisplayed()
+    });  
 
 })  
 

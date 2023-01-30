@@ -8,6 +8,11 @@ export class PlaceOrderDetailPage {
     clickOnPurchaseButton(){
         cy.contains('Purchase').click()              
     }
+
+    checkContentOfConfirmationPopUpMessage(){
+        cy.get('.sa-success').should('be.visible')
+        cy.get('.sweet-alert > h2').should('be.visible')
+    }
 }
 
 export const placeOrderDetailPage = new PlaceOrderDetailPage()

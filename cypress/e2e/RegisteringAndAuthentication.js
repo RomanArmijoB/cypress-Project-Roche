@@ -5,7 +5,7 @@ beforeEach('login to the app', () => {
     cy.openHomePage()    
 })
 
-describe('Feature name', () => {
+describe('Registering and authentication', () => {
     it('User creates a new account on the website Product Store', () => {        
         homePage.clickOnSignUpButton()
         signUpPage.entersUserCredentials()
